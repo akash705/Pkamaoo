@@ -36,8 +36,14 @@ export const useCountdown = (initialSeconds: number) => {
   const [secondsLeft, setSecondsLeft] = useState(() => getInitialSeconds(initialSeconds));
 
   useEffect(() => {
-    // If the timer has run out, do nothing.
+    // When the timer hits zero, clear the stored expiration and reload the page.
     if (secondsLeft <= 0) {
+        // This check ensures we only trigger a reload if there's an expired
+        // timer in localStorage, preventing reload loops.
+        if (localStorage.getItem(STORAGE_KEY)) {
+            localStorage.removeItem(STORAGE_KEY);
+            window.location.reload();
+        }
         return;
     }
 

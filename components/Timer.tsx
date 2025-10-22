@@ -9,8 +9,8 @@ interface TimerProps {
 }
 
 const Timer: React.FC<TimerProps> = ({ language }) => {
-  // Start countdown from a time similar to the image for authenticity
-  const { minutes, seconds } = useCountdown(13 * 60 + 45); 
+  // Start countdown from 15 minutes.
+  const { minutes, seconds } = useCountdown(15 * 60); 
   const t = translations[language].timer as { [key: string]: string };
 
   const formattedMinutes = String(minutes).padStart(2, '0');
