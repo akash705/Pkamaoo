@@ -2,6 +2,7 @@ import React from 'react';
 import { Language } from '../types';
 import { translations } from '../constants/translations';
 import Logo from './Logo';
+import { trackEvent } from '../services/analyticsService';
 
 interface HeaderProps {
   language: Language;
@@ -19,7 +20,13 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange, theme, togg
   const handleLanguageToggle = () => {
     const newLang = language === Language.EN ? Language.HI : Language.EN;
     onLanguageChange(newLang);
+    trackEvent('language_toggle', { language: newLang });
   };
+  
+  const handleThemeToggle = () => {
+      toggleTheme();
+      trackEvent('theme_toggle', { theme: theme === 'light' ? 'dark' : 'light' });
+  }
 
   return (
     <header className="bg-white dark:bg-gray-800 shadow-lg fixed top-0 w-full z-50">
@@ -47,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange, theme, togg
             </svg>
           </button>
           <button
-            onClick={toggleTheme}
+            onClick={handleThemeToggle}
             className="p-2 rounded-full text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
             aria-label="Toggle theme"
           >

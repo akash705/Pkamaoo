@@ -3,6 +3,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Language } from './types';
 import LandingPage from './components/LandingPage';
 import RevealPage from './components/RevealPage';
+import { trackEvent } from './services/analyticsService';
 
 const App: React.FC = () => {
   const [language, setLanguage] = useState<Language>(Language.HI);
@@ -14,6 +15,11 @@ const App: React.FC = () => {
     root.classList.remove(theme === 'dark' ? 'light' : 'dark');
     root.classList.add(theme);
   }, [theme]);
+
+  // Track initial page view on first load
+  useEffect(() => {
+    trackEvent('page_view_landing');
+  }, []);
 
   const handleLanguageChange = useCallback((lang: Language) => {
     setLanguage(lang);

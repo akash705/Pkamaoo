@@ -1,4 +1,5 @@
 
+
 import React, { useMemo } from 'react';
 import { Language, Testimonial } from '../types';
 import { translations } from '../constants/translations';
@@ -21,7 +22,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial, language
   }, []);
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-gray-200 dark:border-green-400 flex flex-col h-full relative overflow-hidden flex-shrink-0 w-80 md:w-auto dark:[box-shadow:0_0_10px_#34d399]">
+    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-2 border-gray-200 dark:border-green-400 flex flex-col h-full relative overflow-hidden flex-shrink-0 w-80 md:w-auto dark:[box-shadow:0_0_10px_#34d399] snap-start">
         <svg className="absolute top-0 left-0 w-24 h-24 text-gray-200 dark:text-gray-700 transform -translate-x-6 -translate-y-6" fill="currentColor" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path d="M100 0C44.77 0 0 44.77 0 100s44.77 100 100 100S200 155.23 200 100 155.23 0 100 0zM50 125c-8.28 0-15-6.72-15-15s6.72-15 15-15 15 6.72 15 15-6.72 15-15 15zm50 0c-8.28 0-15-6.72-15-15s6.72-15 15-15 15 6.72 15 15-6.72 15-15 15z" opacity="0.1"></path>
             <path fillRule="evenodd" d="M60,50 Q80,20 100,50 T140,50" stroke="none" fill="none"></path>

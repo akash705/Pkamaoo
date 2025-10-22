@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +11,15 @@
     <meta name="keywords" content="online scam awareness, earn money scam, work from home fraud, PaisaKamaoo, financial fraud education, phishing simulation, online safety India, prank website, educational tool, avoid scams" />
     <meta name="author" content="PaisaKamaoo" />
 
+    <!-- Google Analytics - IMPORTANT: Replace GA_MEASUREMENT_ID with your own ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       // This config script is essential for the theme toggle to work.
@@ -59,6 +67,16 @@
         to {
           box-shadow: 0 0 20px #34d399, 0 0 30px #34d399;
         }
+      }
+      
+      /* Hide scrollbar for testimonial slider */
+      .testimonial-slider::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .testimonial-slider {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
       }
     </style>
   </head>

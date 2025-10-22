@@ -1,10 +1,11 @@
 
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Language } from '../types';
 import Header from './Header';
 import ScamExpertChat from './ScamExpertChat';
 import { translations } from '../constants/translations';
+import { trackEvent } from '../services/analyticsService';
 
 interface RevealPageProps {
   language: Language;
@@ -32,8 +33,14 @@ const StatCard: React.FC<{ stat: string; description: string }> = ({ stat, descr
 
 const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onReset, theme, toggleTheme, onLogoClick }) => {
   const t = translations[language].reveal as { [key:string]: string };
+  
+  // Track when the reveal page is viewed
+  useEffect(() => {
+    trackEvent('page_view_reveal');
+  }, []);
 
   const handleShare = () => {
+    trackEvent('share_button_click', { language });
     const text = language === Language.HI
       ? 'मैंने अभी-अभी इस ऑनलाइन स्कैम सिमुलेशन का अनुभव किया है। यह बहुत शिक्षाप्रद है! आपको भी इसे आज़माना चाहिए और देखना चाहिए कि क्या आप झांसे में आते हैं:'
       : 'I just experienced this online scam simulation. It\'s super educational! You should try it and see if you fall for it:';

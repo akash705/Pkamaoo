@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Language } from '../types';
 import { translations } from '../constants/translations';
+import { trackEvent } from '../services/analyticsService';
 
 interface ScamFormProps {
   onFormSubmit: () => void;
@@ -21,6 +22,10 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+
+    // Track the form submission event before proceeding.
+    // We are NOT sending any formData to analytics to protect user privacy.
+    trackEvent('form_submit', { language });
 
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: 'auto' });

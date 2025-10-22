@@ -61,7 +61,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
 
         <div className="w-full mx-auto mt-10">
             <h3 className="text-3xl font-bold text-center text-yellow-600 dark:text-yellow-300 mb-6 dark:[text-shadow:0_0_8px_#facc15]">{t.testimonials_title as string}</h3>
-            <div className="flex overflow-x-auto space-x-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-x-0">
+            <div className="testimonial-slider flex overflow-x-auto space-x-6 pb-6 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:space-x-0 snap-x snap-mandatory scroll-smooth">
                 {testimonials.map(testimonial => (
                     <TestimonialCard key={testimonial.id} testimonial={testimonial} language={language} />
                 ))}

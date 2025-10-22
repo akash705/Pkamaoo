@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { askScamExpert } from '../services/geminiService';
 import { Language } from '../types';
 import { translations } from '../constants/translations';
+import { trackEvent } from '../services/analyticsService';
 
 interface ScamExpertChatProps {
     language: Language;
@@ -19,14 +20,17 @@ const ScamExpertChat: React.FC<ScamExpertChatProps> = ({ language }) => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!prompt.trim()) return;
+        const trimmedPrompt = prompt.trim();
+        if (!trimmedPrompt) return;
 
         setIsLoading(true);
         setError(null);
         setResponse('');
+        
+        trackEvent('expert_chat_ask', { language });
 
         try {
-            const result = await askScamExpert(prompt);
+            const result = await askScamExpert(trimmedPrompt);
             setResponse(result);
         } catch (err) {
             setError(err instanceof Error ? err.message : t_chat.error);
