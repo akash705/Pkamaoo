@@ -33,10 +33,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
 
   return (
     <div className="bg-yellow-50 dark:bg-gray-900">
-      <Header 
-        language={language} 
-        onLanguageChange={onLanguageChange} 
-        theme={theme} 
+      <Header
+        language={language}
+        onLanguageChange={onLanguageChange}
+        theme={theme}
         toggleTheme={toggleTheme}
         showEarnNowButton={true}
         onEarnNowClick={handleEarnNowClick}
@@ -50,11 +50,11 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
           <Timer language={language} />
           <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">{t.subheadline as string}</p>
         </div>
-        
+
         <LimitedTimeOffer language={language} />
-        
+
         <VisitorsOnline language={language} />
-        
+
         <RecentPayouts />
 
         <HowItWorks language={language} />

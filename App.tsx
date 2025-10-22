@@ -49,8 +49,8 @@ const App: React.FC = () => {
           onLogoClick={handleReset}
         />
       ) : (
-        <RevealPage 
-          language={language} 
+        <RevealPage
+          language={language}
           onLanguageChange={handleLanguageChange}
           onReset={handleReset}
           theme={theme}
