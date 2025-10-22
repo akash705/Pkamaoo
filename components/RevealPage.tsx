@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react';
 import { Language } from '../types';
 import Header from './Header';
-import ScamExpertChat from './ScamExpertChat';
 import { translations } from '../constants/translations';
 import { trackEvent } from '../services/analyticsService';
 
@@ -33,7 +32,7 @@ const StatCard: React.FC<{ stat: string; description: string }> = ({ stat, descr
 
 const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onReset, theme, toggleTheme, onLogoClick }) => {
   const t = translations[language].reveal as { [key:string]: string };
-  
+
   // Track when the reveal page is viewed
   useEffect(() => {
     trackEvent('page_view_reveal');
@@ -44,7 +43,7 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
     const text = language === Language.HI
       ? 'मैंने अभी-अभी इस ऑनलाइन स्कैम सिमुलेशन का अनुभव किया है। यह बहुत शिक्षाप्रद है! आपको भी इसे आज़माना चाहिए और देखना चाहिए कि क्या आप झांसे में आते हैं:'
       : 'I just experienced this online scam simulation. It\'s super educational! You should try it and see if you fall for it:';
-    const url = window.location.href; 
+    const url = window.location.href;
     const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${url}`)}`;
     window.open(shareUrl, '_blank');
   }
@@ -86,9 +85,9 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
                 {t.share_button}
             </button>
         </div>
-        
+
         <div className="max-w-4xl mx-auto mt-12">
-            <ScamExpertChat language={language} />
+            {/* <ScamExpertChat language={language} /> */}
         </div>
 
         <div className="text-center mt-12">
