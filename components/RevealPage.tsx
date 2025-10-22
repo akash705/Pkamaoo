@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { Language } from '../types';
 import Header from './Header';
@@ -10,6 +12,7 @@ interface RevealPageProps {
   onReset: () => void;
   theme: 'light' | 'dark';
   toggleTheme: () => void;
+  onLogoClick: () => void;
 }
 
 const TacticCard: React.FC<{ title: string; description: string }> = ({ title, description }) => (
@@ -27,7 +30,7 @@ const StatCard: React.FC<{ stat: string; description: string }> = ({ stat, descr
 );
 
 
-const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onReset, theme, toggleTheme }) => {
+const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onReset, theme, toggleTheme, onLogoClick }) => {
   const t = translations[language].reveal as { [key:string]: string };
 
   const handleShare = () => {
@@ -41,7 +44,7 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900">
-      <Header language={language} onLanguageChange={onLanguageChange} theme={theme} toggleTheme={toggleTheme}/>
+      <Header language={language} onLanguageChange={onLanguageChange} theme={theme} toggleTheme={toggleTheme} onLogoClick={onLogoClick}/>
       <main className="container mx-auto px-4 pt-28 pb-12">
         <div className="max-w-4xl mx-auto bg-slate-50 dark:bg-slate-800 p-8 rounded-xl shadow-lg text-center">
             <div className="text-6xl mb-4">🎉</div>
@@ -88,7 +91,7 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
         </div>
 
       </main>
-      <footer className="text-center py-6 mt-10 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm">
+      <footer className="bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm py-6 text-center">
         <p>&copy; 2025 PaisaKamaoo. Spreading Awareness, Not Malware.</p>
       </footer>
     </div>

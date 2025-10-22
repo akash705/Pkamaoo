@@ -29,14 +29,14 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-xl shadow-2xl border-4 border-green-500 relative dark:[animation:input-glow_1.5s_infinite_alternate]">
+    <div className="bg-[#1e293b] p-6 md:p-8 rounded-2xl shadow-2xl border-2 border-green-500/30 relative shadow-[0_0_25px_rgba(52,211,153,0.5)]">
        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
           </svg>
           {t.verified_partner}
       </div>
-      <h3 className="text-2xl font-extrabold text-center text-gray-800 dark:text-white mb-4 pt-2">{t.form_title}</h3>
+      <h3 className="text-2xl font-extrabold text-center text-white mb-6 pt-2">{t.form_title}</h3>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -45,7 +45,7 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
           onChange={handleChange}
           placeholder={t.name_placeholder}
           required
-          className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-3 bg-[#334155] text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
         />
         <input
           type="number"
@@ -54,7 +54,7 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
           onChange={handleChange}
           placeholder={t.age_placeholder}
           required
-          className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-3 bg-[#334155] text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
         />
         <input
           type="tel"
@@ -63,7 +63,7 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
           onChange={handleChange}
           placeholder={t.phone_placeholder}
           required
-          className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-3 bg-[#334155] text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
         />
         <input
           type="email"
@@ -71,16 +71,16 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
           value={formData.email}
           onChange={handleChange}
           placeholder={t.email_placeholder}
-          className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-3 bg-[#334155] text-white border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 placeholder-gray-400"
         />
         <div>
-            <p className="text-xs text-center text-gray-500 dark:text-gray-400 mb-2">
+            <p className="text-xs text-center text-gray-400 my-4">
                 {t.whatsapp_otp_message}
             </p>
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-green-400 to-lime-500 text-white font-bold text-xl py-4 rounded-lg hover:from-green-500 hover:to-lime-600 transition-all shadow-lg dark:animate-pulse-intense disabled:opacity-75 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-green-400 to-lime-500 text-white font-bold text-xl py-4 rounded-lg hover:from-green-500 hover:to-lime-600 transition-all shadow-lg hover:shadow-green-500/50 disabled:opacity-75 disabled:cursor-not-allowed"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">

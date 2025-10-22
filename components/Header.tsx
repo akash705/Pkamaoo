@@ -10,9 +10,10 @@ interface HeaderProps {
   toggleTheme: () => void;
   showEarnNowButton?: boolean;
   onEarnNowClick?: () => void;
+  onLogoClick?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ language, onLanguageChange, theme, toggleTheme, showEarnNowButton, onEarnNowClick }) => {
+const Header: React.FC<HeaderProps> = ({ language, onLanguageChange, theme, toggleTheme, showEarnNowButton, onEarnNowClick, onLogoClick }) => {
   const t = translations[language];
 
   const handleLanguageToggle = () => {
@@ -23,7 +24,9 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange, theme, togg
   return (
     <header className="bg-white dark:bg-gray-800 shadow-lg fixed top-0 w-full z-50">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <Logo />
+        <button onClick={onLogoClick} aria-label="Go to home page">
+          <Logo />
+        </button>
         <div className="flex items-center space-x-2">
           {showEarnNowButton && (
             <button

@@ -40,6 +40,7 @@ const App: React.FC = () => {
           onFormSubmit={handleFormSubmit}
           theme={theme}
           toggleTheme={toggleTheme}
+          onLogoClick={handleReset}
         />
       ) : (
         <RevealPage 
@@ -48,6 +49,7 @@ const App: React.FC = () => {
           onReset={handleReset}
           theme={theme}
           toggleTheme={toggleTheme}
+          onLogoClick={handleReset}
         />
       )}
     </div>

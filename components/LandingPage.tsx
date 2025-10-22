@@ -19,9 +19,10 @@ interface LandingPageProps {
   onFormSubmit: () => void;
   theme: 'light' | 'dark';
   toggleTheme: () => void;
+  onLogoClick: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, onFormSubmit, theme, toggleTheme }) => {
+const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, onFormSubmit, theme, toggleTheme, onLogoClick }) => {
   const t = translations[language].landing as { [key: string]: string | object };
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -31,7 +32,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
 
 
   return (
-    <div className="bg-yellow-50 dark:bg-gray-900 pb-20">
+    <div className="bg-yellow-50 dark:bg-gray-900">
       <Header 
         language={language} 
         onLanguageChange={onLanguageChange} 
@@ -39,8 +40,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
         toggleTheme={toggleTheme}
         showEarnNowButton={true}
         onEarnNowClick={handleEarnNowClick}
+        onLogoClick={onLogoClick}
       />
-      <main className="container mx-auto px-4 pt-24 pb-8">
+      <main className="container mx-auto px-4 pt-24 pb-24 md:pb-8">
         <div className="max-w-4xl mx-auto text-center mt-8">
           <h2 className="text-4xl md:text-6xl font-extrabold text-gray-800 dark:text-white leading-tight dark:[text-shadow:0_0_10px_#fde047,0_0_20px_#fde047]">
             {t.headline as string}
@@ -71,9 +73,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
         </div>
 
       </main>
-      <footer className="text-center py-6 mt-10 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm">
+      <footer className="bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 text-sm py-6 text-center">
         <div className="container mx-auto px-6">
-            <div className="flex justify-center space-x-6 mb-4">
+            <div className="flex justify-center space-x-4 md:space-x-6 mb-2 md:mb-4">
                 <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">{t.footer_terms as string}</a>
                 <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">{t.footer_privacy as string}</a>
                 <a href="#" className="hover:text-gray-900 dark:hover:text-white transition-colors">{t.footer_contact as string}</a>

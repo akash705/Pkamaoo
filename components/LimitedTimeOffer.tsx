@@ -24,9 +24,9 @@ const LimitedTimeOffer: React.FC<LimitedTimeOfferProps> = ({ language }) => {
 
   return (
     <div className="my-8 max-w-2xl mx-auto">
-      <div className="bg-amber-400 text-yellow-900 font-bold text-center p-3 rounded-full flex justify-center items-center shadow-lg dark:shadow-amber-500/20 [text-shadow:1px_1px_1px_rgba(255,255,255,0.2)]">
-        <span className="flex-shrink-0">{t.limited_offer_banner_text}</span>
-        <span className="ml-4 bg-red-600 text-white text-sm font-bold py-2 px-4 rounded-full animate-bounce whitespace-nowrap">
+      <div className="bg-amber-400 text-yellow-900 font-bold text-center p-4 rounded-xl sm:rounded-full flex flex-col sm:flex-row justify-center items-center shadow-lg dark:shadow-amber-500/20 [text-shadow:1px_1px_1px_rgba(255,255,255,0.2)]">
+        <span className="mb-2 sm:mb-0">{t.limited_offer_banner_text}</span>
+        <span className="sm:ml-4 bg-red-600 text-white text-sm font-bold py-2 px-4 rounded-full animate-bounce whitespace-nowrap">
           {seatsLeftText}
         </span>
       </div>
