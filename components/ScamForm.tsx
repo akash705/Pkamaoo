@@ -10,6 +10,7 @@ interface ScamFormProps {
 
 const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
   const [formData, setFormData] = useState({ name: '', age: '', email: '', phone: '' });
+  const [isLoading, setIsLoading] = useState(false);
   const t = translations[language].landing as { [key: string]: string };
 
 
@@ -19,7 +20,12 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onFormSubmit();
+    setIsLoading(true);
+
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      onFormSubmit();
+    }, 2000);
   };
 
   return (
@@ -51,15 +57,6 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
           className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
         />
         <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder={t.email_placeholder}
-          required
-          className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-        />
-        <input
           type="tel"
           name="phone"
           value={formData.phone}
@@ -68,15 +65,34 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
           required
           className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
         />
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder={t.email_placeholder}
+          className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
         <div>
             <p className="text-xs text-center text-gray-500 dark:text-gray-400 mb-2">
                 {t.whatsapp_otp_message}
             </p>
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-green-400 to-lime-500 text-white font-bold text-xl py-4 rounded-lg hover:from-green-500 hover:to-lime-600 transition-all shadow-lg dark:animate-pulse-intense"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-green-400 to-lime-500 text-white font-bold text-xl py-4 rounded-lg hover:from-green-500 hover:to-lime-600 transition-all shadow-lg dark:animate-pulse-intense disabled:opacity-75 disabled:cursor-not-allowed"
             >
-              {t.submit_button}
+              {isLoading ? (
+                <div className="flex items-center justify-center">
+                  <svg className="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  <span>{t.form_processing}</span>
+                </div>
+              ) : (
+                t.submit_button
+              )}
             </button>
         </div>
       </form>

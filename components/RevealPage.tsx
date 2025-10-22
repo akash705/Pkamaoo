@@ -43,9 +43,9 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
     <div className="bg-gray-100 dark:bg-gray-900">
       <Header language={language} onLanguageChange={onLanguageChange} theme={theme} toggleTheme={toggleTheme}/>
       <main className="container mx-auto px-4 pt-28 pb-12">
-        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg text-center">
+        <div className="max-w-4xl mx-auto bg-slate-50 dark:bg-slate-800 p-8 rounded-xl shadow-lg text-center">
             <div className="text-6xl mb-4">🎉</div>
-            <h2 className="text-4xl font-extrabold text-green-600 dark:text-green-400">{t.congratulations}</h2>
+            <h2 className="text-4xl font-extrabold text-green-500 dark:text-green-400">{t.congratulations}</h2>
             <p className="mt-4 text-lg text-gray-700 dark:text-gray-300">{t.main_message}</p>
         </div>
 

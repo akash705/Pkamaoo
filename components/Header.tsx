@@ -1,6 +1,7 @@
 import React from 'react';
 import { Language } from '../types';
 import { translations } from '../constants/translations';
+import Logo from './Logo';
 
 interface HeaderProps {
   language: Language;
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ language, onLanguageChange, theme, togg
   return (
     <header className="bg-white dark:bg-gray-800 shadow-lg fixed top-0 w-full z-50">
       <nav className="container mx-auto px-6 py-3 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-gray-800 dark:text-white tracking-wider">{t.appName as string}</h1>
+        <Logo />
         <div className="flex items-center space-x-2">
           {showEarnNowButton && (
             <button
