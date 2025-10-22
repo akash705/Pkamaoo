@@ -1,6 +1,9 @@
 // This is a simple wrapper for Google Analytics events.
 // It checks if the gtag function exists before trying to send an event.
 // This prevents errors if Google Analytics fails to load or is blocked.
+//
+// Google Analytics is dynamically configured via the GA_MEASUREMENT_ID environment variable.
+// If the environment variable is not set, Google Analytics will not be loaded.
 
 // Define the gtag function on the window object for TypeScript
 declare global {
@@ -8,6 +11,14 @@ declare global {
     gtag: (...args: any[]) => void;
   }
 }
+
+/**
+ * Checks if Google Analytics is properly loaded and configured.
+ * @returns true if Google Analytics is available, false otherwise.
+ */
+export const isAnalyticsAvailable = (): boolean => {
+  return typeof window.gtag === 'function';
+};
 
 /**
  * Tracks a custom event using Google Analytics.
@@ -18,7 +29,7 @@ export const trackEvent = (
   eventName: string,
   eventParams?: { [key: string]: any }
 ): void => {
-  if (typeof window.gtag === 'function') {
+  if (isAnalyticsAvailable()) {
     window.gtag('event', eventName, eventParams);
   } else {
     console.warn(`Analytics not available. Event not tracked: ${eventName}`);

@@ -11,14 +11,18 @@
     <meta name="keywords" content="online scam awareness, earn money scam, work from home fraud, PaisaKamaoo, financial fraud education, phishing simulation, online safety India, prank website, educational tool, avoid scams" />
     <meta name="author" content="PaisaKamaoo" />
 
-    <!-- Google Analytics - IMPORTANT: Replace GA_MEASUREMENT_ID with your own ID -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <!-- Google Analytics - Dynamically configured via environment variables -->
+    <% if (GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== 'GA_MEASUREMENT_ID') { %>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GA_MEASUREMENT_ID %>"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', '<%= GA_MEASUREMENT_ID %>');
     </script>
+    <% } else { %>
+    <!-- Google Analytics not configured. Set GA_MEASUREMENT_ID environment variable. -->
+    <% } %>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
