@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { Language } from '../types';
 import Header from './Header';
 import Timer from './Timer';
@@ -22,6 +22,12 @@ interface LandingPageProps {
 const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, onFormSubmit, theme, toggleTheme }) => {
   const t = translations[language].landing as { [key: string]: string | object };
   const [spots, setSpots] = React.useState(27);
+  const formRef = useRef<HTMLDivElement>(null);
+
+  const handleEarnNowClick = () => {
+    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
 
   React.useEffect(() => {
       if (spots <= 5) return;
@@ -35,7 +41,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
 
   return (
     <div className="bg-yellow-50 dark:bg-gray-900 pb-20">
-      <Header language={language} onLanguageChange={onLanguageChange} theme={theme} toggleTheme={toggleTheme}/>
+      <Header 
+        language={language} 
+        onLanguageChange={onLanguageChange} 
+        theme={theme} 
+        toggleTheme={toggleTheme}
+        showEarnNowButton={true}
+        onEarnNowClick={handleEarnNowClick}
+      />
       <main className="container mx-auto px-4 pt-24 pb-8">
         <div className="max-w-4xl mx-auto text-center mt-8">
           <h2 className="text-4xl md:text-6xl font-extrabold text-gray-800 dark:text-white leading-tight dark:[text-shadow:0_0_10px_#fde047,0_0_20px_#fde047]">
@@ -67,7 +80,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
             </div>
         </div>
 
-        <div className="max-w-md mx-auto my-10">
+        <div ref={formRef} className="max-w-md mx-auto my-10 scroll-mt-24">
           <ScamForm onFormSubmit={onFormSubmit} language={language} />
         </div>
 
