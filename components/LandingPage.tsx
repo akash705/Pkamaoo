@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Language } from '../types';
 import Header from './Header';
@@ -46,9 +47,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ language, onLanguageChange, o
         
         <VisitorsOnline language={language} />
         
-        <HowItWorks language={language} />
+        <RecentPayouts />
 
-        <RecentPayouts language={language} />
+        <HowItWorks language={language} />
 
         <div className="bg-yellow-400 text-yellow-900 font-bold text-center p-3 rounded-md my-8 max-w-3xl mx-auto flex justify-center items-center shadow-lg dark:[text-shadow:1px_1px_2px_rgba(0,0,0,0.2)]">
             <span>{t.limited_offer as string}</span>
