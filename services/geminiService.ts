@@ -1,25 +1,25 @@
-
-import { GoogleGenAI } from '@google/genai';
-
 export const askScamExpert = async (prompt: string): Promise<string> => {
   try {
-    if (!process.env.API_KEY) {
-      throw new Error("API_KEY environment variable not set");
-    }
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-pro',
-      contents: prompt,
-      config: {
-        systemInstruction: "You are a cybersecurity expert specializing in online scams in India. Your audience is a non-technical user who has just gone through an educational scam simulation. Explain concepts clearly, empathetically, and concisely. Use simple language. Avoid jargon. Frame your answers to empower the user to stay safe online.",
-        thinkingConfig: { thinkingBudget: 32768 },
+    const response = await fetch('/api/ask-expert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
+      body: JSON.stringify({ prompt }),
     });
 
-    return response.text;
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'An unknown error occurred.');
+    }
+
+    return data.text;
   } catch (error) {
-    console.error('Error calling Gemini API:', error);
-    throw new Error('Failed to get a response from the expert. Please check your connection or API key.');
+    console.error('Error fetching from local API:', error);
+    if (error instanceof Error) {
+        throw new Error(`Failed to get a response from the expert: ${error.message}`);
+    }
+    throw new Error('Failed to get a response from the expert. Please check your connection.');
   }
 };

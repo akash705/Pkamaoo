@@ -1,22 +1,31 @@
 {
-  "name": "paisakamaoo",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "paisakamaoo-deploy",
+  "version": "1.0.0",
+  "description": "Educational scam awareness platform.",
+  "main": "server.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "node server.js",
+    "build": "webpack --mode production"
   },
+  "author": "PaisaKamaoo",
+  "license": "UNLICENSED",
   "dependencies": {
+    "@google/genai": "^1.26.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "@google/genai": "^1.26.0"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
+    "babel-loader": "^9.1.3",
+    "html-webpack-plugin": "^5.6.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.5.2",
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4"
   }
 }
