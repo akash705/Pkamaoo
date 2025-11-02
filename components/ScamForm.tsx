@@ -4,7 +4,7 @@ import { translations } from "../constants/translations";
 import { trackEvent } from "../services/analyticsService";
 
 interface ScamFormProps {
-  onFormSubmit: () => void;
+  onFormSubmit: (age: number) => void;
   language: Language;
 }
 
@@ -35,7 +35,7 @@ const ScamForm: React.FC<ScamFormProps> = ({ onFormSubmit, language }) => {
 
     setTimeout(() => {
       window.scrollTo({ top: 0, behavior: "auto" });
-      onFormSubmit();
+      onFormSubmit(parseInt(formData.age));
     }, 2000);
   };
 

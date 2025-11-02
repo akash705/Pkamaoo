@@ -16,7 +16,7 @@ import LimitedTimeOffer from './LimitedTimeOffer';
 interface LandingPageProps {
   language: Language;
   onLanguageChange: (lang: Language) => void;
-  onFormSubmit: () => void;
+  onFormSubmit: (age: number) => void;
   theme: 'light' | 'dark';
   toggleTheme: () => void;
   onLogoClick: () => void;
