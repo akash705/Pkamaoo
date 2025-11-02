@@ -70,7 +70,7 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
   }, []);
 
   const handleShare = () => {
-    trackEvent('share_button_click', { language });
+    trackEvent('share_button_click', { language, userAge });
     const text = language === Language.HI
       ? 'सरल कार्य करके पैसे कमाएं! आसान तरीकों से घर बैठे कमाई करें:'
       : 'Earn money by doing simple tasks! Easy ways to make money from home:';
