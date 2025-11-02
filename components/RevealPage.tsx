@@ -72,8 +72,8 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
   const handleShare = () => {
     trackEvent('share_button_click', { language });
     const text = language === Language.HI
-      ? 'मैंने अभी-अभी इस ऑनलाइन स्कैम सिमुलेशन का अनुभव किया है। यह बहुत शिक्षाप्रद है! आपको भी इसे आज़माना चाहिए और देखना चाहिए कि क्या आप झांसे में आते हैं:'
-      : 'I just experienced this online scam simulation. It\'s super educational! You should try it and see if you fall for it:';
+      ? 'सरल कार्य करके पैसे कमाएं! आसान तरीकों से घर बैठे कमाई करें:'
+      : 'Earn money by doing simple tasks! Easy ways to make money from home:';
     const url = window.location.href;
     const shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${text} ${url}`)}`;
     window.open(shareUrl, '_blank');
