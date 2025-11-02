@@ -77,6 +77,15 @@ export const translations: Translations = {
       stat1_desc: 'projected losses to scams & cybercrime in 2025.',
       stat2: '30% of Indians',
       stat2_desc: 'face scam attempts DAILY.',
+      // Government Resources Section
+      govt_resources_title: 'Need Help? Report Scams to Government',
+      govt_resources_desc: '**Been scammed or want to learn more?** Use these official government portals to report cybercrime and protect yourself.',
+      govt_cybercrime_portal: '🏛️ Report to Cyber Crime Portal',
+      govt_ncrp_portal: '🚨 National Cybercrime Reporting',
+      govt_cyber_swachhta: '🛡️ Cyber Security Awareness',
+      govt_sanchar_saathi: '📞 Report Telecom Fraud',
+      govt_i4c_portal: '🔒 Cybercrime Coordination Centre',
+
       share_title: 'Be a Hero. Save Someone Today.',
       share_desc: '**You\'re now immune.** Share this with friends and family. One share could save someone from losing their life savings.',
       share_button: '🛡️ Share & Protect Others',
@@ -166,6 +175,15 @@ export const translations: Translations = {
       stat1_desc: '2025 mein scams & cybercrime se projected losses.',
       stat2: '30% Indians',
       stat2_desc: 'DAILY scam attempts face karte hain.',
+      // Government Resources Section
+      govt_resources_title: 'Madad Chahiye? Government Ko Scam Report Karein',
+      govt_resources_desc: '**Scam hua hai ya aur jaanna chahte hain?** In official government portals se cybercrime report karein aur apne aap ko protect karein.',
+      govt_cybercrime_portal: '🏛️ Cyber Crime Portal Pe Report Karein',
+      govt_ncrp_portal: '🚨 National Cybercrime Reporting',
+      govt_cyber_swachhta: '🛡️ Cyber Security Awareness',
+      govt_sanchar_saathi: '📞 Telecom Fraud Report Karein',
+      govt_i4c_portal: '🔒 Cybercrime Coordination Centre',
+
       share_title: 'Hero Bano. Aaj Kisi Ko Bachao.',
       share_desc: '**Ab aap immune hain.** Doston aur family ke saath share karein. Ek share kisi ki life savings bacha sakta hai.',
       share_button: '🛡️ Share Karo & Doosron Ko Bachao',

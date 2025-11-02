@@ -185,6 +185,84 @@ const RevealPage: React.FC<RevealPageProps> = ({ language, onLanguageChange, onR
             </div>
         </div>
 
+        {/* Government Resources Section */}
+        <div className="max-w-4xl mx-auto mt-12">
+            <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/30 dark:to-green-900/30 border-2 border-blue-300 dark:border-blue-700 p-8 rounded-xl shadow-lg text-center">
+                <h3 className="text-3xl font-bold text-blue-800 dark:text-blue-300 mb-4 flex items-center justify-center">
+                    <span className="text-4xl mr-3">🏛️</span>
+                    <span dangerouslySetInnerHTML={{ __html: t.govt_resources_title }} />
+                </h3>
+                <p className="text-blue-700 dark:text-blue-400 mb-8 text-lg font-medium" dangerouslySetInnerHTML={{ __html: t.govt_resources_desc }} />
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <a
+                        href="https://cybercrime.gov.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('government_link_click', { portal: 'cybercrime', language })}
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold text-lg py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-blue-500/50 flex items-center justify-center no-underline"
+                    >
+                        <span dangerouslySetInnerHTML={{ __html: t.govt_cybercrime_portal }} />
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://i4c.mha.gov.in/ncrp.aspx"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('government_link_click', { portal: 'ncrp', language })}
+                        className="bg-gradient-to-r from-red-600 to-red-700 text-white font-bold text-lg py-4 px-6 rounded-xl hover:from-red-700 hover:to-red-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-red-500/50 flex items-center justify-center no-underline"
+                    >
+                        <span dangerouslySetInnerHTML={{ __html: t.govt_ncrp_portal }} />
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://www.csk.gov.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('government_link_click', { portal: 'cyber_swachhta', language })}
+                        className="bg-gradient-to-r from-green-600 to-green-700 text-white font-bold text-lg py-4 px-6 rounded-xl hover:from-green-700 hover:to-green-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-green-500/50 flex items-center justify-center no-underline"
+                    >
+                        <span dangerouslySetInnerHTML={{ __html: t.govt_cyber_swachhta }} />
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://www.sancharsaathi.gov.in/sfc"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('government_link_click', { portal: 'sanchar_saathi', language })}
+                        className="bg-gradient-to-r from-orange-600 to-orange-700 text-white font-bold text-lg py-4 px-6 rounded-xl hover:from-orange-700 hover:to-orange-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-orange-500/50 flex items-center justify-center no-underline"
+                    >
+                        <span dangerouslySetInnerHTML={{ __html: t.govt_sanchar_saathi }} />
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+
+                    <a
+                        href="https://i4c.mha.gov.in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => trackEvent('government_link_click', { portal: 'i4c', language })}
+                        className="bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold text-lg py-4 px-6 rounded-xl hover:from-purple-700 hover:to-purple-800 transition-all transform hover:scale-105 shadow-lg hover:shadow-purple-500/50 flex items-center justify-center no-underline md:col-span-2 lg:col-span-1"
+                    >
+                        <span dangerouslySetInnerHTML={{ __html: t.govt_i4c_portal }} />
+                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div className="max-w-4xl mx-auto mt-12">
             <h3 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-100 mb-6">{t.stats_title}</h3>
             <div className="grid md:grid-cols-2 gap-6">
